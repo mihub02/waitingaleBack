@@ -14,4 +14,11 @@ public class BoardService {
     private final BoardRepository boardRepository;
 
     public void register(BoardDto.Reg dto) { boardRepository.save(dto.toEntity() );}
+    public BoardDto.Res read(Long idx) {
+        Board board = boardRepository.findById(idx).orElseThrow(
+                () -> new RuntimeException()
+        );
+        return BoardDto.Res.from(board);
+    }
+
 }

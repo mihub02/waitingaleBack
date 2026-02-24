@@ -20,4 +20,10 @@ public class BoardController {
         return ResponseEntity.ok("성공");
     }
 
+    @GetMapping("/read/{idx}")
+    public ResponseEntity read(@PathVariable Long idx) {
+        BoardDto.Res dto = boardService.read(idx);
+        return ResponseEntity.ok(dto);
+    }
+
 }
