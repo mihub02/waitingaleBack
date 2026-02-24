@@ -21,4 +21,9 @@ public class BoardService {
         return BoardDto.Res.from(board);
     }
 
+    public List<BoardDto.Res> list() {
+        List<Board> boardList = boardRepository.findAll();
+        return boardList.stream().map(BoardDto.Res::from).toList();
+    }
+
 }
