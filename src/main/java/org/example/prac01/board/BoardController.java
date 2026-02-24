@@ -2,6 +2,8 @@ package org.example.prac01.board;
 
 
 import lombok.RequiredArgsConstructor;
+import org.aspectj.apache.bcel.Repository;
+import org.example.prac01.board.model.Board;
 import org.example.prac01.board.model.BoardDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +31,12 @@ public class BoardController {
     @GetMapping("/list")
     public ResponseEntity list() {
         List<BoardDto.Res> dto = boardService.list();
+        return ResponseEntity.ok(dto);
+    }
+
+    @PutMapping("/update/{idx}")
+    public ResponseEntity update(@PathVariable Long idx,@RequestBody BoardDto.Reg dto) {
+        boardService.update(idx, dto);
         return ResponseEntity.ok(dto);
     }
 

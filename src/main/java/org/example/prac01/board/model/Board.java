@@ -21,4 +21,10 @@ public class Board {
     private Long idx;
     private String title;
     private String contents;
+
+    public void update(String title, String content) {
+        this.title = title;
+        this.contents = content;
+    }
+
 }
