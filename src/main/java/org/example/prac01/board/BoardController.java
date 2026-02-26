@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @CrossOrigin(
-        origins = "http://localhost:5173/",
+        origins = "http://localhost:5173",
         allowCredentials = "true"
 )
 
@@ -49,6 +49,13 @@ public class BoardController {
     public ResponseEntity update(@PathVariable Long idx,@RequestBody BoardDto.Reg dto) {
         boardService.update(idx, dto);
         return ResponseEntity.ok(dto);
+    }
+
+    // 게시글 삭제
+    @DeleteMapping("/delete/{idx}")
+    public ResponseEntity delete(@PathVariable Long idx) {
+        boardService.delete(idx);
+        return ResponseEntity.ok("삭제가 완료되었습니다.");
     }
 
 }

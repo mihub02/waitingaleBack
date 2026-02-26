@@ -36,4 +36,8 @@ public class BoardService {
         board.update(dto.getTitle(), dto.getContents());
     }
 
+    // 5. 삭제
+    public void delete(Long idx) {
+        boardRepository.deleteById(idx);
+    }
 }
